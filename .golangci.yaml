@@ -1,0 +1,19 @@
+version: "1"
+
+linters:
+  enable:
+    - unused
+    - bodyclose
+    - govet
+    - staticcheck
+    - errcheck
+    - ineffassign
+    - gocyclo
+
+run:
+  timeout: 2m
+  tests: true
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

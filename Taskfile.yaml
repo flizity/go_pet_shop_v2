@@ -1,0 +1,14 @@
+version: "3"
+
+tasks:
+  generate:
+    aliases: [migrate]
+    desc: "Generate migrations for the database"
+    dotenv: [".env"]
+    cmds:
+      - go run cmd/migrator/main.go --migrations-path "./migrations"
+    
+  linter:
+    desc: "Run linters on the codebase"
+    cmds:
+      - golangci-lint run ./...
