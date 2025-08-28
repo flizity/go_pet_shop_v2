@@ -24,7 +24,7 @@ Go Pet Shop
   
 📦 Архитектура
 
-cmd/
+``cmd/
   app/         # Основной HTTP сервер
   migrator/    # CLI для миграций
 internal/
@@ -36,7 +36,7 @@ internal/
 config/
   local.yaml   # Конфиг подключения
 migrations/    # SQL миграции
-Taskfile.yaml  # Автоматизация задач
+Taskfile.yaml  # Автоматизация задач``
 
 ⚡ Быстрый старт
 1.Клонируйте репозиторий:
