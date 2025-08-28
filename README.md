@@ -48,11 +48,11 @@ Taskfile.yaml  # Автоматизация задач
 
 ```
 git clone https://github.com/flizity/go_pet_shop_v2.git
-cd go_pet_shop_v2```
+cd go_pet_shop_v2
 ```
 2.Запустите необходимые сервисы через Docker:
 ```
-docker-compose -f docker-compose.kafka.yaml up -d```
+docker-compose -f docker-compose.kafka.yaml up -d
 ```
 
 3.Настройте конфиг local.yaml под свои параметры.
