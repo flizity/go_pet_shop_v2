@@ -46,26 +46,26 @@ Taskfile.yaml  # Автоматизация задач
 
 1.Клонируйте репозиторий:
 
-
+```
 git clone https://github.com/flizity/go_pet_shop_v2.git
-cd go_pet_shop_v2 
-
+cd go_pet_shop_v2```
+```
 2.Запустите необходимые сервисы через Docker:
-
-
-docker-compose -f docker-compose.kafka.yaml up -d
-
+```
+docker-compose -f docker-compose.kafka.yaml up -d```
+```
 
 3.Настройте конфиг local.yaml под свои параметры.
 
 4.Примените миграции:
-
-go run cmd/migrator/main.go up```
-
+```
+go run cmd/migrator/main.go up
+```
 5.Запустите сервер:
 ```
-go run cmd/app/main.go```
+go run cmd/app/main.go
 ```
+
 📊 Аналитика и события
 - ClickHouse используется для хранения истории заказов и аналитики.
 - Kafka — для асинхронной обработки событий (например, заказов).
