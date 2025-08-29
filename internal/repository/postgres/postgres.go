@@ -12,7 +12,7 @@ type Storage struct {
 }
 
 func New(databaseUrl string) (*Storage, error) {
-	const fn = "storage.postgres.New"
+	const fn = "repository.postgres.New"
 
 	db, err := pgxpool.New(context.Background(), databaseUrl)
 	if err != nil {

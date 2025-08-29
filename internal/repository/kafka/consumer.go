@@ -50,7 +50,8 @@ func (h *consumerGroupHandler) Setup(sarama.ConsumerGroupSession) error   { retu
 func (h *consumerGroupHandler) Cleanup(sarama.ConsumerGroupSession) error { return nil }
 func (h *consumerGroupHandler) ConsumeClaim(session sarama.ConsumerGroupSession, claim sarama.ConsumerGroupClaim) error {
 	for msg := range claim.Messages() {
-		log.Printf("Message claimed: value = %s, timestamp = %v, topic = %s", string(msg.Value), msg.Timestamp, msg.Topic)
+		log.Printf("[KAFKA] Получено сообщение: topic=%s, partition=%d, offset=%d, value=%s, timestamp=%v",
+			msg.Topic, msg.Partition, msg.Offset, string(msg.Value), msg.Timestamp)
 		session.MarkMessage(msg, "")
 	}
 	return nil

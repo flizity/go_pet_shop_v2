@@ -6,17 +6,21 @@ import (
 	models "go_pet_shop/internal/domain"
 )
 
-func (s *Storage) CreateProduct(product models.Product) error {
+func (s *Storage) CreateProduct(product models.Product) (int, error) {
 	const fn = "storage.postgres.CreateProduct"
 
-	_, err := s.db.Exec(context.Background(), `
-		INSERT INTO products (name, description, price, stock)
-		VALUES ($1, $2, $3, $4)
-	`, product.ID, product.Name, product.Price, product.Stock)
+	var id int
+	err := s.db.QueryRow(
+		context.Background(),
+		`INSERT INTO products (name, price, stock)
+		 VALUES ($1, $2, $3)
+		 RETURNING id`,
+		product.Name, product.Price, product.Stock,
+	).Scan(&id)
 	if err != nil {
-		return fmt.Errorf("%s: %w", fn, err)
+		return 0, fmt.Errorf("%s: %w", fn, err)
 	}
-	return nil
+	return id, nil
 }
 
 func (s *Storage) GetProductByID(id int) (models.Product, error) {
